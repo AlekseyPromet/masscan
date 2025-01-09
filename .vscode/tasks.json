@@ -1,0 +1,90 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Go Windows",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "build",
+                "-o",
+                "${workspaceFolder}\\bin\\scan.exe", // Output directory and binary name
+                "-ldflags='", // Open custom ldflags
+                "-X", "main.Version=1.0.0",
+                "'", // Close custom ldflags
+                "${workspaceFolder}\\main.go", // Path to your main Go file
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$go"
+            ],
+            "detail": "Build the Go application with custom flags."
+        },
+        {
+            "label": "Build Go Linux",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "build",
+                "-o",
+                "${workspaceFolder}\\bin\\scan", // Output directory and binary name
+                "-ldflags='", // Open custom ldflags
+                "-X",
+                "main.Version=1.0.0",
+                "'", // Close custom ldflags
+                "${workspaceFolder}\\main.go", // Path to your main Go file
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$go"
+            ],
+            "detail": "Build the Go application with custom flags."
+        },
+        {
+            "label": "Generate Assembler Output",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "build",
+                "-gcflags='", 
+                "-S",
+                "-l",
+                "-B",
+                "'",
+                "${workspaceFolder}\\main.go",
+                "*>",
+                "${workspaceFolder}\\ast\\app.s"                
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$go"
+            ],
+            "detail": "Generate assembler output for the Go application."
+        },
+        {
+            "label": "Go dependency",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "mod", 
+                "tidy"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$go"
+            ],
+        }
+    ]
+}

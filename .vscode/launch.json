@@ -1,0 +1,48 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [                
+        {
+            "name": "Launch Package",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}"
+        },
+        {
+            "name": "Assembler Package",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "preLaunchTask": "Generate Assembler Output",
+            "program": "${workspaceFolder}"
+        },
+        {
+            "name": "Debug Package",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "preLaunchTask": "Golang dependency",
+            "program": "${workspaceFolder}\\main.go"
+        },
+        {
+            "name": "Build Windows",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "preLaunchTask": "Build Go Windows",
+            "program": "${workspaceFolder}\\main.go"
+        },
+        {
+            "name": "Build Linux",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "preLaunchTask": "Build Go Linux",
+            "program": "${workspaceFolder}\\main.go"
+        },
+        
+    ]
+}
